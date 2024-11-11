@@ -1,7 +1,19 @@
 // เริ่มต้นใช้งาน Flatpickr
 flatpickr(".datepicker", {
   dateFormat: "d/m/Y",
-  locale: "th" // ตั้งค่าให้เป็นภาษาไทย
+  locale: "th"
+});
+
+// ฟังก์ชันสำหรับคำนวณดอกเบี้ยอัตโนมัติ
+document.getElementById("principal").addEventListener("input", function() {
+  const principal = parseFloat(this.value);
+  if (!isNaN(principal)) {
+    // คำนวณดอกเบี้ยเป็น 14% ของเงินต้น
+    const interest = principal * 0.14;
+    document.getElementById("amount").value = interest.toFixed(2);
+  } else {
+    document.getElementById("amount").value = ""; // เคลียร์ค่าเมื่อไม่มีเงินต้น
+  }
 });
 
 function calculateWeeks() {

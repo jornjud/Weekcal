@@ -4,12 +4,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>คำนวณดอกเบี้ยจำนำ</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- เรียกใช้ Flatpickr CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
   <div class="container">
     <h2>คำนวณดอกเบี้ยจำนำ</h2>
+
+    <label for="principal">เงินต้น:</label>
+    <input type="number" id="principal" min="0" step="0.01" placeholder="ใส่จำนวนเงินต้น">
+
+    <label for="amount">จำนวนดอกเบี้ย:</label>
+    <input type="number" id="amount" min="0" step="0.01" placeholder="ดอกเบี้ยจะคำนวณอัตโนมัติเมื่อใส่เงินต้น">
 
     <label for="start-date">วันที่มาจำนำ:</label>
     <input type="text" id="start-date" class="datepicker">
@@ -17,15 +22,11 @@
     <label for="end-date">วันที่สิ้นสุด/หรือวันที่ปัจจุบัน:</label>
     <input type="text" id="end-date" class="datepicker"> 
 
-    <label for="amount">จำนวนดอกเบี้ย:</label>
-    <input type="number" id="amount" min="0" step="0.01">
-
     <button onclick="calculateWeeks()">คำนวณ</button>
 
     <div id="result"></div>
   </div>
 
-  <!-- เรียกใช้ Flatpickr JS -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="script.js"></script>
 </body>
